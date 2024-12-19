@@ -5,6 +5,12 @@
     background-color: var(--white);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    display: flex
+;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
 }
 
 .setup-section select {
@@ -25,7 +31,7 @@
     padding: var(--spacing-lg);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    width: calc(50% - var(--spacing-lg));
+    /* width: calc(50% - var(--spacing-lg)); */
     min-width: 300px;
     transition: var(--transition);
     display: flex;
@@ -69,6 +75,9 @@
 .action-buttons {
     display: flex;
     gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .action-buttons button {
@@ -80,6 +89,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1 1 auto;
 }
 
 .add-score {
@@ -104,4 +114,127 @@
 
 .reset-score:hover {
     background-color: var(--primary-dark);
+}
+
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeOut 0.5s ease 3s forwards;
+}
+
+.splash-content {
+    text-align: center;
+    color: var(--white);
+    animation: scaleUp 1s ease;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-footer {
+    color: var(--white);
+    padding: var(--spacing-lg);
+    text-align: center;
+    font-size: var(--font-size-normal);
+    opacity: 0;
+    animation: fadeIn 0.5s ease 1.5s forwards;
+}
+
+.splash-footer a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transition);
+    border-bottom: 1px solid transparent;
+}
+
+.splash-footer a:hover {
+    border-bottom-color: var(--white);
+}
+
+.domino-icon {
+    font-size: 64px;
+    margin-bottom: var(--spacing-lg);
+    animation: rotate 2s ease infinite;
+}
+
+.splash-content h1 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    opacity: 0;
+    animation: slideUp 0.5s ease 0.5s forwards;
+}
+
+.splash-content h2 {
+    font-size: var(--font-size-large);
+    opacity: 0;
+    animation: slideUp 0.5s ease 1s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

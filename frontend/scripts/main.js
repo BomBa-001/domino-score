@@ -1,7 +1,14 @@
-let players = [];
+// إظهار المحتوى الرئيسي بعد شاشة الترحيب
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        document.getElementById('main-content').style.display = 'block';
+    }, 5000); // 3.5 ثواني
 
-// تهيئة اللعبة عند تحميل الصفحة
-window.addEventListener('DOMContentLoaded', async () => {
+    initializeGame();
+});
+
+// تهيئة اللعبة
+async function initializeGame() {
     const savedState = await api.loadGameState();
     if (savedState) {
         players = savedState.players;
@@ -9,7 +16,9 @@ window.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('playersSection').style.display = 'block';
         document.getElementById('scoreSection').style.display = 'block';
     }
-});
+}
+
+let players = [];
 
 function setupPlayers() {
     const playerCount = parseInt(document.getElementById('playerCount').value);

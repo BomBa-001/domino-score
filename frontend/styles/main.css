@@ -49,6 +49,7 @@ button {
     transition: var(--transition);
     background-color: var(--primary-color);
     color: var(--white);
+    flex: 1 1 auto;
 }
 
 button:hover {
