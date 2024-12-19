@@ -38,18 +38,35 @@
         
         <main class="main-content">
             <h1>Domino Score Tracker</h1>
-            <div class="glass-card setup-section">
-                <label for="playerCount" class="setup-label">Number of Players:</label>
-                <select id="playerCount">
-                    <option value="2">2 Players</option>
-                    <option value="4">4 Players</option>
-                </select>
-                <button onclick="setupPlayers()">Start Game</button>
-            </div>
-
-            <div id="scoreSection" class="score-section" style="display: none;">
-                <div id="scoreCards"></div>
-            </div>
+            
+            <section id="tabControl" class="tab-control">
+                <div class="tab-buttons">
+                    <button class="tab-button" data-tab="natural">Natural</button>
+                    <button class="tab-button active" data-tab="american">American</button>
+                </div>
+                <div class="tab-content">
+                    <div class="loader"></div>
+                    <div class="tab-panel" data-panel="natural">
+                        <div class="glass-card">
+                            <h3>Natural Style</h3>
+                            <p>Switch to traditional scoring method.</p>
+                        </div>
+                    </div>
+                    <div class="tab-panel active" data-panel="american">
+                        <div class="glass-card setup-section">
+                            <label for="playerCount" class="setup-label">Number of Players:</label>
+                            <select id="playerCount">
+                                <option value="2">2 Players</option>
+                                <option value="4">4 Players</option>
+                            </select>
+                            <button onclick="setupPlayers()">Start Game</button>
+                        </div>
+                        <div id="scoreSection" class="score-section" style="display: none;">
+                            <div id="scoreCards"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
     <script src="scripts/utils.js"></script>

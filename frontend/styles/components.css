@@ -220,7 +220,14 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    animation: fadeOut 0.5s ease 3s forwards;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--transition), visibility var(--transition);
+}
+
+.splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .splash-content {
@@ -272,6 +279,117 @@
     font-size: var(--font-size-large);
     opacity: 0;
     animation: slideUp 0.5s ease 1s forwards;
+}
+
+.tab-control {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    height: 100%;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+}
+
+.tab-button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: var(--font-size-small);
+    position: relative;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tab-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform var(--transition);
+}
+
+.tab-button:hover {
+    color: var(--text-color);
+    transform: none;
+    box-shadow: none;
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+}
+
+.tab-button.active::after {
+    transform: scaleX(1);
+}
+
+.tab-content {
+    position: relative;
+    min-height: 200px;
+}
+
+.tab-panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px);
+    transition: all var(--transition);
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.tab-panel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.tab-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.tab-panel > :last-child {
+    margin-bottom: var(--spacing-xl);
+}
+
+.loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.loader.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
 }
 
 @keyframes fadeOut {
@@ -337,5 +455,11 @@
     }
     50% {
         transform: translateY(-3px);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
 }

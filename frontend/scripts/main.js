@@ -1,3 +1,9 @@
+// Configuration
+const CONFIG = {
+    SPLASH_SCREEN_DURATION: 35, // Duration in milliseconds
+    TAB_SWITCH_DELAY: 500, // Delay for tab switching animation
+};
+
 // Theme management
 function toggleTheme() {
     const html = document.documentElement;
@@ -14,13 +20,68 @@ function loadTheme() {
     document.documentElement.setAttribute('data-theme', savedTheme);
 }
 
-// Show main content after splash screen
+// Tab Control
+function initTabControl() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const loader = document.querySelector('.loader');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetTab = button.dataset.tab;
+            if (!button.classList.contains('active')) {
+                switchTab(targetTab);
+            }
+        });
+    });
+}
+
+async function switchTab(targetTab) {
+    const buttons = document.querySelectorAll('.tab-button');
+    const panels = document.querySelectorAll('.tab-panel');
+    const loader = document.querySelector('.loader');
+    
+    // Update buttons
+    buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === targetTab);
+    });
+    
+    // Show loader
+    loader.classList.add('active');
+    
+    // Hide all panels
+    panels.forEach(panel => {
+        panel.classList.remove('active');
+    });
+    
+    // Simulate loading
+    await new Promise(resolve => setTimeout(resolve, CONFIG.TAB_SWITCH_DELAY));
+    
+    // Hide loader and show target panel
+    loader.classList.remove('active');
+    const targetPanel = document.querySelector(`[data-panel="${targetTab}"]`);
+    targetPanel.classList.add('active');
+}
+
+// Splash Screen
 window.addEventListener('DOMContentLoaded', () => {
     loadTheme();
+    initTabControl();
     
+    const splashScreen = document.getElementById('splash-screen');
+    const app = document.getElementById('app');
+
+    // Show app after delay
     setTimeout(() => {
-        document.getElementById('app').style.display = 'flex';
-    }, 3500);
+        splashScreen.classList.add('hidden');
+        app.style.display = 'flex';
+    }, CONFIG.SPLASH_SCREEN_DURATION);
+
+    // Clean up splash screen after transition
+    splashScreen.addEventListener('transitionend', () => {
+        if (splashScreen.classList.contains('hidden')) {
+            splashScreen.style.display = 'none';
+        }
+    });
 
     initializeGame();
 });
