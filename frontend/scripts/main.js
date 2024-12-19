@@ -1,4 +1,4 @@
-// إدارة الوضع الليلي/النهاري
+// Theme management
 function toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
@@ -8,30 +8,29 @@ function toggleTheme() {
     localStorage.setItem('theme', newTheme);
 }
 
-// تحميل الوضع المحفوظ
+// Load saved theme
 function loadTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
 }
 
-// إظهار المحتوى الرئيسي بعد شاشة الترحيب
+// Show main content after splash screen
 window.addEventListener('DOMContentLoaded', () => {
     loadTheme();
     
     setTimeout(() => {
-        document.getElementById('main-content').style.display = 'block';
+        document.getElementById('app').style.display = 'flex';
     }, 3500);
 
     initializeGame();
 });
 
-// تهيئة اللعبة
+// Initialize game
 async function initializeGame() {
     const savedState = await api.loadGameState();
     if (savedState) {
         players = savedState.players;
         renderPlayers();
-        document.getElementById('playersSection').style.display = 'block';
         document.getElementById('scoreSection').style.display = 'block';
     }
 }
@@ -44,16 +43,15 @@ function setupPlayers() {
     
     for (let i = 0; i < playerCount; i++) {
         players.push({
-            name: `لاعب ${i + 1}`,
+            name: `Player ${i + 1}`,
             score: 0
         });
     }
     
     renderPlayers();
-    document.getElementById('playersSection').style.display = 'block';
     document.getElementById('scoreSection').style.display = 'block';
     
-    // حفظ حالة اللعبة
+    // Save game state
     api.saveGameState({ players });
 }
 
@@ -62,20 +60,20 @@ function renderPlayers() {
     scoreCards.innerHTML = '';
     
     players.forEach((player, index) => {
-        const playerCard = utils.createElement('div', 'player-card');
+        const playerCard = utils.createElement('div', 'glass-card player-card');
         
         playerCard.innerHTML = `
             <div class="player-name">
                 <input type="text" value="${player.name}" 
                        onchange="updatePlayerName(${index}, this.value)" 
-                       placeholder="اسم اللاعب">
+                       placeholder="Player Name">
             </div>
             <div class="score-controls">
-                <div class="score-display">النقاط: ${utils.formatNumber(player.score)}</div>
+                <div class="score-display">Score: ${utils.formatNumber(player.score)}</div>
                 <div class="action-buttons">
                     <button class="add-score" onclick="addScore(${index})">+1</button>
                     <button class="subtract-score" onclick="subtractScore(${index})">-1</button>
-                    <button class="reset-score" onclick="resetScore(${index})">تصفير</button>
+                    <button class="reset-score" onclick="resetScore(${index})">Reset</button>
                 </div>
             </div>
         `;

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل نقاط الدومينو</title>
+    <title>Domino Score Tracker</title>
     <link rel="stylesheet" href="styles/variables.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
@@ -12,15 +12,15 @@
     <div id="splash-screen" class="splash-screen">
         <div class="splash-content">
             <div class="domino-icon">🁅</div>
-            <h1>مرحباً بك في</h1>
-            <h2>تطبيق تسجيل نقاط الدومينو</h2>
+            <h1>Welcome to</h1>
+            <h2>Domino Score Tracker</h2>
         </div>
         <footer class="splash-footer">
-            جميع الحقوق محفوظة © لـ <a href="https://bomba-001.github.io/CV-Hussein/" target="_blank">Hussein Ado</a> 2024
+            Copyright &copy; <a href="https://bomba-001.github.io/CV-Hussein/" target="_blank">Hussein Ado</a> 2024
         </footer>
     </div>
 
-    <div id="main-content" class="container" style="display: none;">
+    <div id="app" class="app">
         <header class="main-header">
             <nav class="nav-container">
                 <a href="#" class="logo">
@@ -36,24 +36,21 @@
             </nav>
         </header>
         
-        <h1>تسجيل نقاط الدومينو</h1>
-        
-        <div class="setup-section">
-            <label for="playerCount">عدد اللاعبين:</label>
-            <select id="playerCount">
-                <option value="2">2 لاعبين</option>
-                <option value="4">4 لاعبين</option>
-            </select>
-            <button onclick="setupPlayers()">بدء اللعبة</button>
-        </div>
+        <main class="main-content">
+            <h1>Domino Score Tracker</h1>
+            <div class="glass-card setup-section">
+                <label for="playerCount" class="setup-label">Number of Players:</label>
+                <select id="playerCount">
+                    <option value="2">2 Players</option>
+                    <option value="4">4 Players</option>
+                </select>
+                <button onclick="setupPlayers()">Start Game</button>
+            </div>
 
-        <div id="playersSection" class="players-section" style="display: none;">
-            <div id="playersList"></div>
-        </div>
-
-        <div id="scoreSection" class="score-section" style="display: none;">
-            <div id="scoreCards"></div>
-        </div>
+            <div id="scoreSection" class="score-section" style="display: none;">
+                <div id="scoreCards"></div>
+            </div>
+        </main>
     </div>
     <script src="scripts/utils.js"></script>
     <script src="scripts/api.js"></script>

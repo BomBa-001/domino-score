@@ -13,6 +13,7 @@
     --border-color: rgba(0, 0, 0, 0.1);
     --white: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --scrollbar-hover: rgba(0, 0, 0, 0.2);
 
     /* المسافات */
     --spacing-xs: 4px;
@@ -47,4 +48,5 @@
     --text-light: #b3c5d3;
     --border-color: rgba(255, 255, 255, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.3);
+    --scrollbar-hover: rgba(255, 255, 255, 0.1);
 }
