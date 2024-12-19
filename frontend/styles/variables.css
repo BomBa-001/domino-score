@@ -1,0 +1,31 @@
+:root {
+    /* الألوان الأساسية */
+    --primary-color: #2196F3;
+    --primary-dark: #1976D2;
+    --danger-color: #f44336;
+    --danger-dark: #d32f2f;
+    --success-color: #4CAF50;
+    --success-dark: #388E3C;
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --text-light: #666;
+    --white: #ffffff;
+
+    /* المسافات */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* الخط */
+    --font-size-small: 14px;
+    --font-size-normal: 16px;
+    --font-size-large: 24px;
+    --font-size-xl: 32px;
+
+    /* التأثيرات */
+    --border-radius: 12px;
+    --box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}

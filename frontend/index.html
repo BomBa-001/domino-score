@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل نقاط الدومينو</title>
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <div class="container">
+        <h1>تسجيل نقاط الدومينو</h1>
+        
+        <div class="setup-section">
+            <label for="playerCount">عدد اللاعبين:</label>
+            <select id="playerCount">
+                <option value="2">2 لاعبين</option>
+                <option value="4">4 لاعبين</option>
+            </select>
+            <button onclick="setupPlayers()">بدء اللعبة</button>
+        </div>
+
+        <div id="playersSection" class="players-section" style="display: none;">
+            <div id="playersList"></div>
+        </div>
+
+        <div id="scoreSection" class="score-section" style="display: none;">
+            <div id="scoreCards"></div>
+        </div>
+    </div>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

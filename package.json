@@ -1,0 +1,11 @@
+{
+  "name": "domino-score",
+  "version": "1.0.0",
+  "description": "تطبيق تسجيل نقاط الدومينو",
+  "scripts": {
+    "start": "live-server frontend"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

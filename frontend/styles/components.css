@@ -1,0 +1,107 @@
+.setup-section {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.setup-section select {
+    margin: 0 var(--spacing-md);
+}
+
+#scoreCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+}
+
+.player-card {
+    background-color: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: calc(50% - var(--spacing-lg));
+    min-width: 300px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.player-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.player-name {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.player-name input {
+    flex: 1;
+}
+
+.score-controls {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.score-display {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    color: var(--text-color);
+    padding: var(--spacing-md);
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    min-width: 120px;
+    text-align: center;
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.action-buttons button {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-normal);
+    font-weight: bold;
+    min-width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-score {
+    background-color: var(--success-color);
+}
+
+.add-score:hover {
+    background-color: var(--success-dark);
+}
+
+.subtract-score {
+    background-color: var(--danger-color);
+}
+
+.subtract-score:hover {
+    background-color: var(--danger-dark);
+}
+
+.reset-score {
+    background-color: var(--primary-color);
+}
+
+.reset-score:hover {
+    background-color: var(--primary-dark);
+}
