@@ -1,8 +1,26 @@
+// إدارة الوضع الليلي/النهاري
+function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
+// تحميل الوضع المحفوظ
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
 // إظهار المحتوى الرئيسي بعد شاشة الترحيب
 window.addEventListener('DOMContentLoaded', () => {
+    loadTheme();
+    
     setTimeout(() => {
         document.getElementById('main-content').style.display = 'block';
-    }, 5000); // 3.5 ثواني
+    }, 3500);
 
     initializeGame();
 });

@@ -14,7 +14,7 @@
 }
 
 .setup-section select {
-    margin: 0 var(--spacing-md);
+    flex: 1 1 auto;
 }
 
 #scoreCards {
@@ -114,6 +114,101 @@
 
 .reset-score:hover {
     background-color: var(--primary-dark);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    z-index: 100;
+}
+
+.main-header {
+    background-color: var(--card-bg);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-xl);
+    position: sticky;
+    top: var(--spacing-md);
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-icon {
+    font-size: 1.2em;
+    animation: bounce 2s infinite;
+}
+
+.logo-text {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+#theme-switch {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-large);
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    box-shadow: var(--box-shadow);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+#theme-switch:hover {
+    transform: rotate(360deg);
+    border-color: var(--primary-color);
+}
+
+.theme-icon {
+    transition: var(--transition);
+}
+
+[data-theme="light"] .theme-icon.dark,
+[data-theme="dark"] .theme-icon.light {
+    display: none;
 }
 
 .splash-screen {
@@ -236,5 +331,14 @@
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
     }
 }

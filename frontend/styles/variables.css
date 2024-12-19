@@ -1,15 +1,18 @@
 :root {
-    /* الألوان الأساسية */
+    /* الألوان الأساسية - الوضع النهاري */
     --primary-color: #2196F3;
     --primary-dark: #1976D2;
     --danger-color: #f44336;
     --danger-dark: #d32f2f;
     --success-color: #4CAF50;
     --success-dark: #388E3C;
-    --bg-color: #f5f5f5;
-    --text-color: #333;
-    --text-light: #666;
+    --bg-color: #f8f9fa;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --text-color: #2c3e50;
+    --text-light: #5c6f84;
+    --border-color: rgba(0, 0, 0, 0.1);
     --white: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 
     /* المسافات */
     --spacing-xs: 4px;
@@ -26,6 +29,22 @@
 
     /* التأثيرات */
     --border-radius: 12px;
-    --box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --box-shadow: 0 4px 12px var(--shadow-color);
     --transition: all 0.3s ease;
+}
+
+/* الوضع الليلي */
+[data-theme="dark"] {
+    --primary-color: #64B5F6;
+    --primary-dark: #42A5F5;
+    --danger-color: #FF5252;
+    --danger-dark: #FF1744;
+    --success-color: #69F0AE;
+    --success-dark: #00E676;
+    --bg-color: #0a1929;
+    --card-bg: rgba(23, 36, 55, 0.9);
+    --text-color: #ecf0f1;
+    --text-light: #b3c5d3;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.3);
 }

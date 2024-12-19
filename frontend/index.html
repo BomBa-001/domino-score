@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html dir="rtl" lang="ar" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
 <body>
     <div id="splash-screen" class="splash-screen">
         <div class="splash-content">
-            <div class="domino-icon">🎲</div>
+            <div class="domino-icon">🁅</div>
             <h1>مرحباً بك في</h1>
             <h2>تطبيق تسجيل نقاط الدومينو</h2>
         </div>
@@ -21,6 +21,21 @@
     </div>
 
     <div id="main-content" class="container" style="display: none;">
+        <header class="main-header">
+            <nav class="nav-container">
+                <a href="#" class="logo">
+                    <span class="logo-icon">🁅</span>
+                    <span class="logo-text">BomBa</span>
+                </a>
+                <div class="controls">
+                    <button id="theme-switch" onclick="toggleTheme()">
+                        <span class="theme-icon light">☀️</span>
+                        <span class="theme-icon dark">🌙</span>
+                    </button>
+                </div>
+            </nav>
+        </header>
+        
         <h1>تسجيل نقاط الدومينو</h1>
         
         <div class="setup-section">

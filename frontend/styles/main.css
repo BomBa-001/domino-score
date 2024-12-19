@@ -10,6 +10,8 @@ body {
     direction: rtl;
     min-height: 100vh;
     padding: var(--spacing-md);
+    color: var(--text-color);
+    transition: var(--transition);
 }
 
 .container {
@@ -30,8 +32,9 @@ select {
     padding: var(--spacing-md) var(--spacing-lg);
     font-size: var(--font-size-normal);
     border-radius: var(--border-radius);
-    border: 1px solid var(--text-light);
-    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
     cursor: pointer;
     transition: var(--transition);
 }
@@ -60,9 +63,11 @@ button:hover {
 input[type="text"] {
     width: 100%;
     padding: var(--spacing-md);
-    border: 1px solid var(--text-light);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     font-size: var(--font-size-normal);
+    background-color: var(--card-bg);
+    color: var(--text-color);
     transition: var(--transition);
 }
 
