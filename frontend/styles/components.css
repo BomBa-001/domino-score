@@ -1,3 +1,18 @@
+.Components__Player{
+    height: 100%;
+    overflow: auto;
+    position: relative;
+}
+.Components__Player .primary-button{
+    padding: 1em;
+    margin: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    inset-block-end: 2em;
+    inset-inline-start: 2em;
+    z-index: 10;
+}
+
 .glass-card {
     text-align: center;
     background-color: var(--card-bg);
@@ -185,7 +200,7 @@
     cursor: pointer;
     font-size: var(--font-size-large);
     padding: var(--spacing-sm);
-    border-radius: 50%;
+    border-radius: var(--border-circle);
     background-color: var(--card-bg);
     box-shadow: var(--box-shadow);
     width: 44px;
@@ -387,9 +402,302 @@
     width: 30px;
     height: 30px;
     border: 3px solid var(--primary-color);
-    border-radius: 50%;
+    border-radius: var(--border-circle);
     border-top-color: transparent;
     animation: spin 0.6s linear infinite;
+}
+
+.primary-button {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-circle);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+    background: var(--primary-color-hover);
+    color: var(--text-color);
+    transform: translateY(-2px);
+}
+
+.button-icon {
+    font-size: 1.2em;
+}
+
+.players-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.player-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.player-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.player-header {
+    padding: 1rem;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.player-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--bg-color);
+    color: var(--primary-color);
+    border-radius: var(--border-circle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.player-name {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.total-score {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+}
+
+.score-label {
+    font-size: 0.8em;
+    opacity: 0.9;
+}
+
+.player-score {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.player-content {
+    padding: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.action-button {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    width: 32px;
+    height: 32px;
+    border-radius: var(--border-circle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-button:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    border-color: var(--primary-color);
+}
+
+.score-list {
+    height: 100%;
+    overflow-x: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+}
+
+.score-item {
+display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2em 0.5em;
+  border-radius: calc(var(--border-radius) / 1.5);
+  transition: all 0.3s ease;
+}
+
+.score-item:hover {
+    transform: translateX(5px);
+}
+
+.score-item.positive {
+    /* border-left: 3px solid var(--success-color); */
+}
+
+.score-item.negative {
+    /* border-left: 3px solid var(--danger-color); */
+}
+
+.score-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.score-time {
+    display: none;
+    color: var(--text-color-secondary);
+    font-size: 0.8rem;
+}
+
+.score-value {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.positive .score-value {
+    color: var(--success-color);
+}
+
+.negative .score-value {
+    color: var(--danger-color);
+}
+
+.delete-score {
+    border: none;
+    color: var(--text-color-secondary);
+    cursor: pointer;
+    padding: 0.2em 0.6em;
+    border-radius: var(--border-circle);
+    opacity: 1;
+    background: var(--danger-color);
+    transition: all 0.3s ease;
+    flex: 0 0 auto;
+}
+
+.score-item:hover .delete-score {
+    opacity: 1;
+}
+
+
+.delete-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.clear-scores {
+    margin-left: auto;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-color-secondary);
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+}
+
+/* Name Counter Styles */
+.name-counter {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.counter-text {
+    color: var(--text-color-secondary);
+    font-size: 0.8rem;
+}
+
+/* Fixed Add Button */
+#addPlayerBtn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 1000;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+}
+
+#addPlayerBtn:hover {
+    transform: scale(1.1);
+}
+
+#addPlayerBtn .button-icon {
+    font-size: 1.5em;
+}
+
+/* Adjust content padding to avoid button overlap */
+.main-content {
+    padding-bottom: calc(56px + 4rem);
+}
+
+/* SweetAlert2 Custom Styles */
+.swal2-popup {
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+.swal2-input {
+    background: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.swal2-confirm {
+    background: var(--primary-color) !important;
+}
+
+/* Toast Notification Styles */
+.swal2-toast {
+    background: var(--card-bg) !important;
+    box-shadow: var(--shadow) !important;
+}
+
+.swal2-toast .swal2-title {
+    color: var(--text-color) !important;
+    font-size: 0.95em !important;
+}
+
+.swal2-toast .swal2-timer-progress-bar {
+    background: var(--primary-color) !important;
 }
 
 @keyframes fadeOut {

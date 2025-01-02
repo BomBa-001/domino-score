@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/variables.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 </head>
 <body>
     <div id="splash-screen" class="splash-screen">
@@ -37,8 +38,11 @@
         </header>
         
         <main class="main-content">
-            <h1>Domino Score Tracker</h1>
-            
+            <!-- -->
+                             <button id="addPlayerBtn" class="primary-button">
+                                <span class="button-icon">➕</span>
+
+                            </button>           
             <section id="tabControl" class="tab-control">
                 <div class="tab-buttons">
                     <button class="tab-button" data-tab="natural">Natural</button>
@@ -46,30 +50,27 @@
                 </div>
                 <div class="tab-content">
                     <div class="loader"></div>
-                    <div class="tab-panel" data-panel="natural">
+                    <div class="tab-panel" id="tab-panel_1" data-panel="natural">
                         <div class="glass-card">
                             <h3>Natural Style</h3>
                             <p>Switch to traditional scoring method.</p>
                         </div>
                     </div>
-                    <div class="tab-panel active" data-panel="american">
-                        <div class="glass-card setup-section">
-                            <label for="playerCount" class="setup-label">Number of Players:</label>
-                            <select id="playerCount">
-                                <option value="2">2 Players</option>
-                                <option value="4">4 Players</option>
-                            </select>
-                            <button onclick="setupPlayers()">Start Game</button>
-                        </div>
-                        <div id="scoreSection" class="score-section" style="display: none;">
-                            <div id="scoreCards"></div>
+                    <div class="tab-panel active" id="tab-panel_2" data-panel="american">
+                        <div class="Components__Player glass-card">
+
+                            <div id="playersList" class="players-list">
+                                <!-- Players will be added here dynamically -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="scripts/utils.js"></script>
+    <script src="scripts/database.js"></script>
     <script src="scripts/api.js"></script>
     <script src="scripts/main.js"></script>
 </body>

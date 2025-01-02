@@ -9,6 +9,7 @@
     --bg-color: #f8f9fa;
     --card-bg: rgba(255, 255, 255, 0.9);
     --text-color: #2c3e50;
+    --text-color-secondary: #7f8c98;
     --text-light: #5c6f84;
     --border-color: rgba(0, 0, 0, 0.1);
     --white: #ffffff;
@@ -30,6 +31,7 @@
 
     /* التأثيرات */
     --border-radius: 12px;
+    --border-circle: 50%;
     --box-shadow: 0 4px 12px var(--shadow-color);
     --transition: all 0.3s ease;
 }
@@ -45,6 +47,7 @@
     --bg-color: #0a1929;
     --card-bg: rgba(23, 36, 55, 0.9);
     --text-color: #ecf0f1;
+    --text-color-secondary: #aeb8c2;
     --text-light: #b3c5d3;
     --border-color: rgba(255, 255, 255, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.3);
